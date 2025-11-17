@@ -60,17 +60,16 @@ jobs:
     # ----------------------------
     # MT7981 defconfig 自动复制
     # ----------------------------
-    - name: Use MT7981 device defconfig
+    - name: Use H3C NX30 Pro NMBM Layout config
       run: |
-        cp -f defconfig/mt7981-ax3000.config .config
-        echo "Using MT7981-AX3000 config"
+        cp -f defconfig/h3c_magic-nx30-pro-nmbm.config .config
+        echo "Using H3C NX30 Pro NMBM Layout config"
 
     # ----------------------------
     # Compile firmware
     # ----------------------------
     - name: Compile firmware
       run: |
-        make defconfig
         make -j$(nproc) || make -j1 V=s
 
     # ----------------------------
