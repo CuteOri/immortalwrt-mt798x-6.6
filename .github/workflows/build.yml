@@ -82,3 +82,22 @@ jobs:
           name=$(basename "$f")
           gh upload-artifact "$name" "$f"
         done
+
+    - name: Upload sysupgrade
+      uses: actions/upload-artifact@v4
+      with:
+        name: sysupgrade
+        path: immortalwrt-mediatek-filogic-h3c_magic-nx30-pro-nmbm-squashfs-sysupgrade.bin
+    
+    - name: Upload factory
+      uses: actions/upload-artifact@v4
+      with:
+        name: factory
+        path: immortalwrt-mediatek-filogic-h3c_magic-nx30-pro-nmbm-squashfs-factory.bin
+  
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: nightly
+        files: |
+          bin/targets/mediatek/filogic/immortalwrt-mediatek-filogic-h3c_magic-nx30-pro-nmbm-*.bin
