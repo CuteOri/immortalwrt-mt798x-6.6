@@ -76,9 +76,9 @@ jobs:
     # 上传固件
     # ----------------------------
     - name: Upload each firmware individually
-    shell: bash
-    run: |
-      for f in bin/targets/mediatek/filogic/immortalwrt-mediatek-filogic-h3c_magic-nx30-pro-nmbm-*.bin; do
-        name=$(basename "$f")
-        gh upload-artifact "$name" "$f"
-      done
+      shell: bash
+      run: |
+        for f in bin/targets/mediatek/filogic/immortalwrt-mediatek-filogic-h3c_magic-nx30-pro-nmbm-*.bin; do
+          name=$(basename "$f")
+          gh upload-artifact "$name" "$f"
+        done
